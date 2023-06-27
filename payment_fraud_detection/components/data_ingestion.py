@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from payment_fraud_detection.components.data_transformation import DataTransformationConfig,DataTransformation
-# from model_trainer import ModelTrainer, ModelTrainerConfig
+from payment_fraud_detection.components.model_trainer import ModelTrainer, ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -56,5 +56,5 @@ if __name__ == "__main__":
     data_trasformation = DataTransformation()
     train_arr, test_arr, _ = data_trasformation.initiate_data_transformation(train_data, test_data)
     
-    # model_trainer = ModelTrainer()
-    # print(model_trainer.initiate_model_trainer(train_array=train_arr, test_array=test_arr))
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_array=train_arr, test_array=test_arr))
