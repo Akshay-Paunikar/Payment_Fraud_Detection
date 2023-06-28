@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Payment Fraud Detection</title>
+</head>
+<body>
+    <div class="login">
+        <h1>Payment Fraud Detection ML App</h1>
+        <form action="{{url_for('predict_datapoint')}}" method="post">
+            <h2>
+                <legend>Prediction of Good or Fraud Payments</legend>
+            </h2>
+            <div class="pfd-1">
+                <label class="form-label">AccountAgeDays :</label>
+                <input class="form-control" type="number" name="AccountAgeDays" placeholder="Enter Account Age Days"
+                min="1" max="2000">
+            </div>
+
+            <div class="pfd-1">
+                <label class="form-label">NumItems :</label>
+                <input class="form-control" type="number" name="NumItems" placeholder="Enter Num Items"
+                min="1" max="29">
+            </div>
+
+            <div class="pfd-1">
+                <label class="form-label">localTime :</label>
+                <input class="form-control" type="number" name="localTime" placeholder="Enter local Time"
+                min="0" max="6">
+            </div>
+
+            <div class="pfd-1">
+                <label class="form-label">PaymentMethod :</label>
+                <select class="form-control" name="PaymentMethod" placeholder="Select Payment Method" required>
+                    <option class="placeholder" selected disabled value="">Select Payment Method</option>
+                    <option value="paypal">paypal</option>
+                    <option value="storecredit">storecredit</option>
+                    <option value="creditcard">creditcard</option>
+                </select>
+            </div>
+
+            <div class="pfd-1">
+                <label class="form-label">PaymentMethodAgeDays :</label>
+                <input class="form-control" type="number" name="PaymentMethodAgeDays" placeholder="Enter Payment Method Age Days"
+                min="0" max="2000">
+            </div>
+
+            <div class="button">Predict Payment:
+                <input class="btn btn-primary" type="submit" value="Submit" required>
+            </div>
+        </form>
+        <h3>
+            The Payment is {{results}}
+        </h3>        
+    </div>    
+</body>
+</html>
