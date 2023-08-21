@@ -33,8 +33,9 @@ def predict_datapoint():
         preprocessor = pickle.load(open('preprocessor.pkl', 'rb'))
         model = pickle.load(open('model.pkl', 'rb'))
         
-        predict_pipeline = PredictPipeline()
-        results = predict_pipeline.predict(pred_df)
+        pred_df = preprocessor.transform(pred_df)
+        results = model.predict(pred_df)
+        
         if results == 1:
             payment = "Fraud"
         else:
