@@ -5,7 +5,7 @@ import pandas as pd
 from flask import Flask, render_template, request
 import pickle
 
-from payment_fraud_detection.pipeline.prediction_pipeline import CustomData, PredictPipeline
+from prediction_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
 app = application
